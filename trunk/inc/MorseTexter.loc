@@ -1,0 +1,47 @@
+/*
+MorseTexter.loc
+
+Morse Texter: send an SMS using Morse code.
+
+http://code.google.com/p/morsetexter
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+// Caption
+#define qtn_apps_tamn_list          "Morse Texter"
+#define qtn_apps_tamn_grid          "Morse"
+
+//  LOCALISATION STRINGS
+
+#define qtn_morsetexter_title               "Morse Texter"
+
+#define qtn_morsetexter_morse_text      "Version 0.11"
+#define qtn_morsetexter_preview_text      " "
+#define qtn_morsetexter_low_text     "Press left arrow (or 1/4/7/*) for a dot, right arrow (or 3/6/9/#) for a dash, and OK (or 2/5/8/0) for a space. Then Options->Send as SMS (or send/green key)."
+
+#define qtn_morsetexter_menu_exit           "Exit"
+
+
+//64
+//34567890123456789012345678901234567890123456789012345678901234
+
+//128
+//34567890123456789012345678901234567890123456789012345678901234//34567890123456789012345678901234567890123456789012345678901234
+
+//256
+//34567890123456789012345678901234567890123456789012345678901234//34567890123456789012345678901234567890123456789012345678901234//34567890123456789012345678901234567890123456789012345678901234//34567890123456789012345678901234567890123456789012345678901234
+
+

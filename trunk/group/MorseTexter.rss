@@ -1,0 +1,265 @@
+/*
+MorseTexter.rss
+
+Morse Texter: send an SMS using Morse code.
+
+http://code.google.com/p/morsetexter
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+
+//  RESOURCE IDENTIFIER
+NAME    MORS
+
+//  INCLUDES
+
+#include <eikon.rh>
+#include <eikon.rsg>
+#include <avkon.loc>
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <avkon.mbg>
+
+#include "MorseTexter.hrh"
+#include "MorseTexter.loc"
+
+//  RESOURCE DEFINITIONS 
+
+RESOURCE RSS_SIGNATURE { }
+
+
+RESOURCE TBUF32 { buf=qtn_morsetexter_title; }
+
+RESOURCE EIK_APP_INFO
+    {
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_hotkeys
+//    Hotkeys
+//
+//----------------------------------------------------
+//
+RESOURCE HOTKEYS r_morsetexter_hotkeys
+    {
+    control=
+        {
+        HOTKEY { command = EAknCmdExit; key='e'; }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_menu
+//    menu view
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_morsetexter_menu
+    {
+    hotkeys = r_morsetexter_hotkeys;
+    menubar = r_morsetexter_menubar_menu;
+//    cba = R_AVKON_SOFTKEYS_SELECTION_LIST;
+    cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_menubar_menu
+//    Menubar for menu view
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_BAR r_morsetexter_menubar_menu
+    {
+    titles=
+        {
+        MENU_TITLE 
+            {
+            txt = qtn_morsetexter_menu_system;
+            menu_pane = r_morsetexter_system_menu;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_system_menu
+//    MenuPane for menu view
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_PANE r_morsetexter_system_menu
+    {
+    items=
+        {
+        MENU_ITEM 
+		{
+		command = EMorseTexterSendViaSms;
+		txt = "Send as SMS";
+		},
+        MENU_ITEM 
+		{
+		command = EMorseTexterClearAll;
+		txt = "Clear all";
+		},
+        MENU_ITEM 
+		{
+		command = EMorseTexterToggleSound;
+		txt = "Toggle sound";
+		},
+        MENU_ITEM 
+		{
+		command = EMorseTexterViewMorseGuide;
+		txt = "Morse code guide";
+		},
+        MENU_ITEM 
+		{
+		command = EMorseTexterSendViaBt;
+		txt = "Share with a friend";
+		},
+        MENU_ITEM 
+            {
+            command = EAknCmdExit;
+            txt = qtn_morsetexter_menu_exit;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_morse_text
+//    Text on menu view (Upper)
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF64 r_morsetexter_morse_text
+    {
+    buf = qtn_morsetexter_morse_text;
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_preview_text
+//    Text on menu view (Upper)
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF64 r_morsetexter_preview_text
+    {
+    buf = qtn_morsetexter_preview_text;
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_low_text
+//    Text on menu view (Lower)
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF256 r_morsetexter_low_text
+    {
+    buf = qtn_morsetexter_low_text;
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_text_view
+//    Text view
+//
+//----------------------------------------------------
+//
+//RESOURCE EDWIN r_morsetexter_text_view
+RESOURCE GTXTED r_morsetexter_text_view
+    {
+    flags = EEikEdwinDisplayOnly;
+//    flags = EAknEditorFlagDefault;
+    width = 15;
+//     lines = 4;
+    numlines = 4;
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_message_format
+//    string to show a message inform an item selection
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF40 r_morsetexter_message_format
+    {
+    buf = qtn_morsetexter_message_format;
+    }
+
+//----------------------------------------------------
+//   
+//    r_morsetexter_new_item
+//    string used by new menu item
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF40 r_morsetexter_new_item
+    {
+    buf = qtn_morsetexter_menu_sub_new;
+    }
+
+
+
+
+RESOURCE DIALOG r_morsetexter_clearall_query
+  {
+  flags = EGeneralQueryFlags;
+  buttons = R_AVKON_SOFTKEYS_YES_NO;
+  items =
+    {
+    DLG_LINE
+      {
+      type = EAknCtQuery;
+      id = EGeneralQuery;
+      control = AVKON_CONFIRMATION_QUERY
+        {
+        layout  = EConfirmationQueryLayout;
+        label   = "Clear all dots, dashes and text?";
+	animation = R_QGN_NOTE_QUERY_ANIM; // animated '?'
+        };
+      }
+    };
+  }
+
+
+RESOURCE DIALOG r_morsetexter_discardmessage_query
+  {
+  flags = EGeneralQueryFlags;
+  buttons = R_AVKON_SOFTKEYS_YES_NO;
+  items =
+    {
+    DLG_LINE
+      {
+      type = EAknCtQuery;
+      id = EGeneralQuery;
+      control = AVKON_CONFIRMATION_QUERY
+        {
+        layout  = EConfirmationQueryLayout;
+        label   = "Exit Morse Texter?";
+	animation = R_QGN_NOTE_QUERY_ANIM; // animated '?'
+        };
+      }
+    };
+  }
+
+
+
+// End of File

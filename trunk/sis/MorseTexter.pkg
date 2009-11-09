@@ -1,0 +1,62 @@
+;
+; MorseTexter.pkg
+;
+; Morse Texter: send an SMS using Morse code.
+;
+; http://code.google.com/p/morsetexter
+;
+; This program is free software; you can redistribute it and/or
+; modify it under the terms of the GNU General Public License
+; as published by the Free Software Foundation; either version 2
+; of the License, or (at your option) any later version.
+;
+; This program is distributed in the hope that it will be useful,
+; but WITHOUT ANY WARRANTY; without even the implied warranty of
+; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+; GNU General Public License for more details.
+;
+; You should have received a copy of the GNU General Public License
+; along with this program; if not, write to the Free Software
+; Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+; Languages
+&EN
+
+; Release UID from Symbian
+#{"Morse Texter"},(0x102078D4),0,11,1
+
+; Doesn't work on:
+; 7650 - v0.9
+; 3620 - v1.x
+; N-Gage - v1.x
+
+; Does work on:
+; 6260 - v2.1
+; 7610 - v2.1
+; 6680 - v2.8
+
+;Supports Series 60 v 0.9
+(0x101F6F88), 0, 0, 0, {"Series60ProductID"}
+
+;Supports Series 60 v2.0
+;(0x101f7960), 0, 0, 0, {"Series60ProductID"}
+
+;See http://www.newlc.com/article.php3?id_article=149 for a list of UIDs
+
+; Target
+"\epoc32\release\thumb\urel\MorseTexter.app"-"!:\system\apps\MorseTexter\MorseTexter.app"
+
+; Series 60 1.2
+;"\epoc32\release\thumb\urel\MorseTexter.rsc"-"!:\system\apps\MorseTexter\MorseTexter.rsc"
+;"\epoc32\release\thumb\urel\MorseTexter.aif"-"!:\system\apps\MorseTexter\MorseTexter.aif"
+;"\epoc32\release\thumb\urel\MorseTexter_caption.rsc"-"!:\system\apps\MorseTexter\MorseTexter_caption.rsc"
+
+; Series 60 2.1
+"\epoc32\data\z\system\apps\MorseTexter\MorseTexter.rsc"-"!:\system\apps\MorseTexter\MorseTexter.rsc"
+"\epoc32\data\z\system\apps\MorseTexter\MorseTexter.aif"-"!:\system\apps\MorseTexter\MorseTexter.aif"
+"\epoc32\data\z\system\apps\MorseTexter\MorseTexter_caption.rsc"-"!:\system\apps\MorseTexter\MorseTexter_caption.rsc"
+
+; todo install on drive !: and fix code to load from !:
+"..\html\morsecode.html"-"C:\system\apps\MorseTexter\morsecode.html"
+
+"MorseTexter.bin"-"!:\system\apps\morsetexter\morsetexter.sis_"

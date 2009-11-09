@@ -1,0 +1,47 @@
+
+
+----
+
+TODO
+ * Add short and long key press handling on the OK key for dot and dash input, 
+   with proper timing to add character and word spaces
+
+HOW TODO
+
+http://www.newlc.com/article.php3?id_article=275
+
+Detect inactivity after x   = medium (letter) gap
+Detect inactivity after x+y = long (word) gap
+
+
+In InactivityDetected() you implement what your application needs to do when there has been inactivity, i.e. letter or word gap. In ActivityDetected() you implement what your application needs to do when activity is resumed after the inactivity period, i.e. dot or dash.
+
+
+InactivityDetected()
+Probably need two iObservers, one for letter gap, one for word gap.
+When letter gap detected, call LetterGap()
+But if word gap is subsequently detected, call WordGap()
+
+LetterGap()
+Match iMorseChar and append to iText.
+Zero iMorseChar.
+Draw.
+
+WordGap()
+Append space to iText.
+Zero iMorseChar. (Should have been done, but can do again to make sure.)
+Draw.
+
+
+
+ActivityDetected()
+calls OfferKeyEventL():
+	case Short press: Dot()
+	case Long press: Dash()
+
+Dot() / Dash()
+Append ./- to iMorseChar
+Draw.
+
+
+
