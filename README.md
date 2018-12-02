@@ -1,8 +1,8 @@
 # Morse Texter: Send an SMS using Morse code
 
-![](http://laivakoira.typepad.com/photos/uncategorized/4715_morsetexter002jpg.jpg) ![](http://laivakoira.typepad.com/photos/uncategorized/4716_morsetexter003jpg.jpg)
+![](images/4715_morsetexter002jpg.jpg) ![](images//4716_morsetexter003jpg.jpg)
 
-![](http://laivakoira.typepad.com/photos/uncategorized/4717_morsetexter004jpg.jpg) ![](http://laivakoira.typepad.com/photos/uncategorized/4718_morsetexter006jpg.jpg)
+![](images//4717_morsetexter004jpg.jpg) ![](images//4718_morsetexter006jpg.jpg)
 
 After reading [this](http://www.russellbeattie.com/notebook/1008476.html) and [this](https://web.archive.org/web/20071013222028/http://muddybranch.thejkgroup.com:80/2005/05/morse_code_trum.html) and [this](http://www.m0tzo.co.uk/2004/01/11/morse-code-software/) I decided to knock up this dodgy prototype amazing application for S60 v2.x phones (but not v1.x or v3.x -- check your version here). Tap in some Morse code, and then send it as an SMS. Keys are:
 
